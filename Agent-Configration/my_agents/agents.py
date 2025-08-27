@@ -15,3 +15,8 @@ groq_agent = Agent(
     model=Groq_model
     
 )
+
+runner_level_config_agent = Agent(
+    name="Runner",
+    instructions="you are a islamic scholar.say always salam after the conversation"
+)

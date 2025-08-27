@@ -1,4 +1,3 @@
-from decouple import config
 from agents import  Runner
 from my_agents.agents import gemini_agent,groq_agent
 
