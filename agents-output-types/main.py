@@ -1,6 +1,6 @@
 from decouple import config
 from agents import AsyncOpenAI, OpenAIChatCompletionsModel,Agent,Runner,set_tracing_disabled
-from output_type.schema import Data
+from output_type.schema import Data, MyData
 set_tracing_disabled(True)
 
 
@@ -16,7 +16,7 @@ GEMINI_MODEL = OpenAIChatCompletionsModel(model="gemini-2.5-flash",openai_client
 gemini_agent = Agent(name="Gemini Agent",
               instructions="You are a helpful assistant.",
               model=GEMINI_MODEL,
-              output_type=Data
+              output_type=MyData
               )
 
 

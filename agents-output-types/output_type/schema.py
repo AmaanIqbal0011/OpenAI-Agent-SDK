@@ -7,3 +7,7 @@ class Data:
     n2:int 
     result:int
     
+class MyData(BaseModel):
+     num1: int
+     num2: int
+     answer: int
