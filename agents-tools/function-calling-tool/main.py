@@ -31,13 +31,13 @@ gemini_model = OpenAIChatCompletionsModel(
 
 agent = Agent(
     name="Gemini Agent",
-    instructions="You are a helpful assistant that uses Gemini-1.5 to answer questions.",
-    tools=[plus, subtract,fetch_user_data,fetch_user_data_by_id],
+    instructions="You are a helpful assistant that answer my every question using LLm or tools.",
+    tools=[plus, subtract],
     )
 
 res = Runner.run_sync(
     starting_agent=agent, 
-    input="muje  id 1 or id 2  key user ke name ke list do or in ke sath username bi ho inkey answer english mey dey",
+    input="capital of France? ",
     run_config = RunConfig(model=gemini_model,model_provider=client)
 )
 
