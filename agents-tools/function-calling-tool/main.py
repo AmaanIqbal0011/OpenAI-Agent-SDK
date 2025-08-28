@@ -32,7 +32,7 @@ gemini_model = OpenAIChatCompletionsModel(
 agent = Agent(
     name="Gemini Agent",
     instructions="You are a helpful assistant that answer my every question using LLm or tools.",
-    tools=[plus, subtract],
+    tools=[plus, subtract, fetch_user_data, fetch_user_data_by_id],
     )
 
 res = Runner.run_sync(
