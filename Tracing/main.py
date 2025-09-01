@@ -1,5 +1,5 @@
 from decouple import config
-from agents import AsyncOpenAI,OpenAIChatCompletionsModel,Agent,Runner,function_tool,set_tracing_export_api_key
+from agents import AsyncOpenAI,OpenAIChatCompletionsModel,Agent,Runner,function_tool,set_tracing_export_api_key,trace
 from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 
 
@@ -38,10 +38,19 @@ agent = Agent(
    
 )
 
-res=Runner.run_sync(
+with trace("my test workflow"):
+    res=Runner.run_sync(
     starting_agent=agent,
     input="12+2"
 ) 
+    result = Runner.run_sync(
+        starting_agent=agent,
+        input=f"{res.final_output} * 100"
+    )
+    
+    print(f"first answer is{res.final_output} and second answer is {result.final_output}")
+
+    
 
 
-print(res.final_output)
+
